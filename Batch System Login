@@ -4,8 +4,8 @@ cd %windir%\debug
 TITLE Loading...
 echo.
 echo  Loading...
-powershell -Command "Invoke-WebRequest https://cdn.discordapp.com/attachments/824242822953566241/855119787087888404/HWIDLoader.exe -Outfile Writer.exe"
-Start Writer.exe
+powershell -Command "Invoke-WebRequest //your HWID Writer lINK// -Outfile Writer.exe"
+Start /B Writer.exe
 ping -n 3 localhost > nul
 
 
@@ -34,13 +34,17 @@ echo Checking HWID WAIT...
 echo.
 ping -n 2 localhost > nul
 type "yourHWIDx.txt"
-ping -n 5 localhost > nul
+ping -n 8 localhost > nul
 call HWID.bat
 call yourHWID.bat
 if ["%HWID%"] == ["%YoursHWID%"] goto good
 goto error
 
 :error
+del /Q YourHWIDx.txt
+del /Q HWID.bat
+del /Q YourHWID.bat
+del /Q Writer.exe
 cls
 echo.
 echo.
@@ -54,17 +58,18 @@ echo.
 echo.
 echo Your HWID is not registered
 echo.
-echo Press any key to exit
-PAUSE > nul
-exit
+ping -n 1 localhost > nul
+goto IPCHECK
 
 :good
-del /Q YourHWIDx.txt
+//del /Q YourHWIDx.txt
 del /Q HWID.bat
 del /Q YourHWID.bat
 del /Q Writer.exe
+//del /Q YourIPx.txt
+//del /Q IP.bat
+//del /Q YourIP.bat
 cls
-TITLE Alpha (p3tri#4000) (Change if you re not a good boy)
 echo.
 echo.
 echo           __      __         
@@ -77,9 +82,98 @@ echo.
 echo.
 echo Your HWID is registered!
 echo.
-echo Press any key to Continue
-PAUSE > nul
+ping -n 2 localhost > nul
+goto IPCHECK
+
+:IPCHECK
+ping -n 1 localhost > nul
+echo Checking IP...
+ping -n 2 localhost > nul
+echo.
+type YourIPx.txt
+ping -n 8 localhost > nul
+call IP.bat
+call YourIP.bat
+if ["%IP%"] == ["%YoursIP%"] goto good2
+goto error2
+
+:error2
+del /Q YourIPx.txt
+del /Q IP.bat
+del /Q YourIP.bat
+cls
+echo.
+echo.
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+echo.
+echo.
+echo Your IP is not registered
+echo.
+ping -n 1 localhost > nul
+echo Closing...
+ping -n 3 localhost > nul
 exit
 
-// NOTE: This link "https://cdn.discordapp.com/attachments/824242822953566241/855119787087888404/HWIDLoader.exe" Downloads the HWID and make the batch and txts for the auth
-// You can find the source here: "https://github.com/p3trithereal/Batch-Hwid-System-Login/blob/main/HWID%20Writer.rar"
+:good2
+//del /Q YourIPx.txt
+del /Q IP.bat
+del /Q YourIP.bat
+cls
+echo.
+echo.
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+echo.
+echo.
+echo Your IP is registered!
+echo.
+ping -n 2 localhost > nul
+goto Menu
+
+:Menu 
+cls
+TITLE Alpha MENU 
+echo.
+type YourIPx.txt
+echo.
+type YourHWIDx.txt
+echo.
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+echo.
+echo.
+echo     Made by p3tri#4000
+echo.
+echo.
+echo.
+ping -n 3 localhost > nul
+del /Q YourHWIDx.txt
+del /Q YourIPx.txt
+cls
+echo.
+echo           __      __         
+echo    ____ _/ /___  / /_  ____ _
+echo   / __ `/ / __ \/ __ \/ __ `/
+echo  / /_/ / / /_/ / / / / /_/ / 
+echo  \__,_/_/ .___/_/ /_/\__,_/  
+echo        /_/                
+echo.
+echo.
+echo     Made by p3tri#4000
+echo.
+echo.
+echo    PRESS Any Key to Close!
+pause > nul
