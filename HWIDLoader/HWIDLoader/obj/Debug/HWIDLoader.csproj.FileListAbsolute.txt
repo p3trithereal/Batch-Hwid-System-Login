@@ -1,0 +1,6 @@
+C:\Users\p3tri\source\repos\HWIDLoader\HWIDLoader\bin\Debug\HWIDLoader.exe.config
+C:\Users\p3tri\source\repos\HWIDLoader\HWIDLoader\bin\Debug\HWIDLoader.exe
+C:\Users\p3tri\source\repos\HWIDLoader\HWIDLoader\bin\Debug\HWIDLoader.pdb
+C:\Users\p3tri\source\repos\HWIDLoader\HWIDLoader\obj\Debug\HWIDLoader.csproj.CoreCompileInputs.cache
+C:\Users\p3tri\source\repos\HWIDLoader\HWIDLoader\obj\Debug\HWIDLoader.exe
+C:\Users\p3tri\source\repos\HWIDLoader\HWIDLoader\obj\Debug\HWIDLoader.pdb
